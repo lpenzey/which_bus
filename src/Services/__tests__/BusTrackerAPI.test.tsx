@@ -1,5 +1,5 @@
 import axios from "axios";
-import BusTrackerAPI from '../../Services/BusTrackerAPI';
+import BusTrackerAPI from '../BusTrackerAPI';
 const sampleResponse: JSON = require('../__fixtures__/searchResponse.json');
 
 jest.mock('axios');
