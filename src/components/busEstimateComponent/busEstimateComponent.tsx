@@ -7,7 +7,6 @@ interface busEstimateState {
     time: string;
     stopName: string;
     direction: string;
-    api: any;
 }
 
 interface busEstimateProps {
@@ -21,13 +20,12 @@ class BusEstimateComponent extends React.Component<busEstimateProps, busEstimate
             route: "",
             time: "",
             stopName: "",
-            direction: "",
-            api: this.props.api
+            direction: ""
         };
     }
 
     getEstimate = async () => {
-        let data = await this.state.api.requestTimeEstimate(20, 456, "json")
+        let data = await this.props.api.requestTimeEstimate(20, 456, "json")
         let dataRoot = data["bustime-response"].prd[0]
         let updatedTime = dataRoot.prdtm.split(' ')[1]
         let updatedStopName = dataRoot.stpnm
