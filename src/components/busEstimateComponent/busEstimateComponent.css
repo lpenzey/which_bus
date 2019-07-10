@@ -1,0 +1,12 @@
+.timeTable {
+    background-color: navajowhite;
+    padding: 12px;
+    margin: auto;
+    color: rgb(56, 64, 72);
+    font-size: 26px;
+    text-align: left;
+    border-radius: 12px;
+    border: .5px solid black;
+    width: auto;
+    z-index: 1;
+}
