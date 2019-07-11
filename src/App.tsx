@@ -1,11 +1,7 @@
 import React from 'react';
 import './App.css';
-import Main from "./components/mainComponent/mainComponent";
+import Main from './main';
 
-const App: React.FC = () => {
-  return (
-    <Main />
-  );
-}
+const App: React.FC = () => <Main />
 
 export default App;

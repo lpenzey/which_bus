@@ -1,6 +1,6 @@
 import axios from "axios";
-import BusTrackerAPI from '../BusTrackerAPI';
-const sampleResponse: JSON = require('../__fixtures__/searchResponse.json');
+import BusTrackerAPI from './busTrackerAPI';
+const sampleResponse: JSON = require('./__fixtures__/searchResponse.json');
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -33,4 +33,3 @@ describe("GET Request", () => {
         );
     });
 });
-

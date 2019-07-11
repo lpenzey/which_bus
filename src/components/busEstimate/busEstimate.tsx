@@ -1,5 +1,5 @@
 import React from 'react';
-import './busEstimateComponent.css';
+import './busEstimate.css';
 import Button from 'react-bootstrap/Button';
 
 interface busEstimateState {
@@ -13,7 +13,7 @@ interface busEstimateProps {
     api: any;
 }
 
-class BusEstimateComponent extends React.Component<busEstimateProps, busEstimateState> {
+class BusEstimate extends React.Component<busEstimateProps, busEstimateState> {
     constructor(props: busEstimateProps) {
         super(props);
         this.state = {
@@ -60,4 +60,4 @@ class BusEstimateComponent extends React.Component<busEstimateProps, busEstimate
     }
 }
 
-export default BusEstimateComponent;
+export default BusEstimate;
