@@ -1,12 +1,38 @@
 .timeTable {
-    background-color: navajowhite;
-    padding: 12px;
-    margin: auto;
-    color: rgb(56, 64, 72);
-    font-size: 26px;
-    text-align: left;
+    background-color: #03DAC6;
+    padding: 25px;
     border-radius: 12px;
-    border: .5px solid black;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+    background-image: url(./Bus-logo.svg);
+    background-size: 140%; 
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 50%;
+}
+
+.innerText {
+    color: rgb(243, 243, 243);
+    font-size: 30px;
+    text-shadow: 1px 1px 2px #000000;    text-align: center;
     width: auto;
-    z-index: 1;
+    font-family: Garamond, sans-serif;
+}
+
+#estimateButton {
+    background-color: rgb(1, 145, 140);
+    border-color: hsla(0, 69%, 10%, 0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+#estimateButton:hover {
+    background-color: rgb(0, 255, 242);
+    border-color: hsla(0, 69%, 10%, 0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
 }

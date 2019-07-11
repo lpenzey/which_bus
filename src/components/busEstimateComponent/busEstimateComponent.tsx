@@ -34,25 +34,27 @@ class BusEstimateComponent extends React.Component<busEstimateProps, busEstimate
 
 
         this.setState({
-            time: updatedTime,
-            stopName: updatedStopName,
-            route: updatedRoute,
-            direction: updatedDirection
+            time: "ARRIVING AT: " + updatedTime,
+            stopName: "STOP: " + updatedStopName,
+            route: "ROUTE: " + updatedRoute,
+            direction: "DIRECTION: " + updatedDirection
         });
     }
 
     render() {
         return (
             <div className="timeTable">
-                ROUTE:  {this.state.route}
-                <br></br>
-                STOP: {this.state.stopName}
-                <br></br>
-                DIRECTION: {this.state.direction}
-                <br></br>
-                NEXT BUS ARRIVES AT: {this.state.time}
-                <br></br>
-                <Button variant="primary" id="estimateButton" onClick={this.getEstimate.bind(this)}>Click to Get Estimate</Button>
+                <div className="innerText">
+                    {this.state.route}
+                    <br></br>
+                    {this.state.stopName}
+                    <br></br>
+                    {this.state.direction}
+                    <br></br>
+                    {this.state.time}
+                    <br></br>
+                </div>
+                <Button variant="light" id="estimateButton" onClick={this.getEstimate.bind(this)}>Get Estimate</Button>
             </div>
         );
     }

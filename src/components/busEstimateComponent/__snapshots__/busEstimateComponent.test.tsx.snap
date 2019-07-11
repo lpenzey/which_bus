@@ -11,30 +11,30 @@ exports[`<BusEstimateComponent /> does a snapshot 1`] = `
   <div
     className="timeTable"
   >
-    ROUTE:  
-    <br />
-    STOP: 
-    <br />
-    DIRECTION: 
-    <br />
-    NEXT BUS ARRIVES AT: 
-    <br />
+    <div
+      className="innerText"
+    >
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
     <Button
       active={false}
       disabled={false}
       id="estimateButton"
       onClick={[Function]}
       type="button"
-      variant="primary"
+      variant="light"
     >
       <button
-        className="btn btn-primary"
+        className="btn btn-light"
         disabled={false}
         id="estimateButton"
         onClick={[Function]}
         type="button"
       >
-        Click to Get Estimate
+        Get Estimate
       </button>
     </Button>
   </div>
@@ -52,34 +52,34 @@ exports[`<BusEstimateComponent /> should update text when clicking on button 1`]
   <div
     className="timeTable"
   >
-    ROUTE:  
-    20
-    <br />
-    STOP: 
-    Madison & Jefferson
-    <br />
-    DIRECTION: 
-    Westbound
-    <br />
-    NEXT BUS ARRIVES AT: 
-    12:02
-    <br />
+    <div
+      className="innerText"
+    >
+      ROUTE: 20
+      <br />
+      STOP: Madison & Jefferson
+      <br />
+      DIRECTION: Westbound
+      <br />
+      ARRIVING AT: 12:02
+      <br />
+    </div>
     <Button
       active={false}
       disabled={false}
       id="estimateButton"
       onClick={[Function]}
       type="button"
-      variant="primary"
+      variant="light"
     >
       <button
-        className="btn btn-primary"
+        className="btn btn-light"
         disabled={false}
         id="estimateButton"
         onClick={[Function]}
         type="button"
       >
-        Click to Get Estimate
+        Get Estimate
       </button>
     </Button>
   </div>
