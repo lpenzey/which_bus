@@ -1,87 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BusEstimate /> does a snapshot 1`] = `
-<BusEstimate
-  api={
-    Object {
-      "requestTimeEstimate": [Function],
-    }
-  }
+exports[`inserts estimate time 1`] = `
+<div
+  class="innerText"
+  data-testid="estimate"
 >
-  <div
-    className="timeTable"
-  >
-    <div
-      className="innerText"
-    >
-      <br />
-      <br />
-      <br />
-      <br />
-    </div>
-    <Button
-      active={false}
-      disabled={false}
-      id="estimateButton"
-      onClick={[Function]}
-      type="button"
-      variant="light"
-    >
-      <button
-        className="btn btn-light"
-        disabled={false}
-        id="estimateButton"
-        onClick={[Function]}
-        type="button"
-      >
-        Get Estimate
-      </button>
-    </Button>
-  </div>
-</BusEstimate>
-`;
-
-exports[`<BusEstimate /> should update text when clicking on button 1`] = `
-<BusEstimate
-  api={
-    Object {
-      "requestTimeEstimate": [Function],
-    }
-  }
->
-  <div
-    className="timeTable"
-  >
-    <div
-      className="innerText"
-    >
-      ROUTE: 20
-      <br />
-      STOP: Madison & Jefferson
-      <br />
-      DIRECTION: Westbound
-      <br />
-      ARRIVING AT: 12:02
-      <br />
-    </div>
-    <Button
-      active={false}
-      disabled={false}
-      id="estimateButton"
-      onClick={[Function]}
-      type="button"
-      variant="light"
-    >
-      <button
-        className="btn btn-light"
-        disabled={false}
-        id="estimateButton"
-        onClick={[Function]}
-        type="button"
-      >
-        Get Estimate
-      </button>
-    </Button>
-  </div>
-</BusEstimate>
+  ROUTE: 20
+  <br />
+  STOP: Madison & Jefferson
+  <br />
+  DIRECTION: Westbound
+  <br />
+  ARRIVING AT: 12:02
+  <br />
+</div>
 `;

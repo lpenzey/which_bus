@@ -44,7 +44,7 @@ class BusEstimate extends React.Component<busEstimateProps, busEstimateState> {
     render() {
         return (
             <div className="timeTable">
-                <div className="innerText">
+                <div className="innerText" data-testid="estimate">
                     {this.state.route}
                     <br></br>
                     {this.state.stopName}
