@@ -10,9 +10,13 @@ const Main: React.FC = () => {
 
     return (
         <div>
-            <NavBar />
-            <br></br>
-            <BusEstimate api={busTrackerApi} />
+            <div className='bus-estimate-container'>
+                <NavBar />
+                <br></br>
+                <BusEstimate api={busTrackerApi} />
+                <br></br>
+                <BusEstimate api={busTrackerApi} />
+            </div>
         </div>
     );
 }
