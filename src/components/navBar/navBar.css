@@ -1,11 +1,11 @@
 .navbar {
-    background-color: #6200EE;
-    margin: auto;
-    width: auto;
+  background-color: #6200ee;
+  margin: auto;
+  width: auto;
 }
 
- .text {
-    opacity:0.93;
-    font-family: Garamond, sans-serif, sans-serif;
-    padding: 18px;
-} 
+.text {
+  opacity: 0.93;
+  font-family: Garamond, sans-serif, sans-serif;
+  padding: 18px;
+}

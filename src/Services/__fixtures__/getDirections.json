@@ -1,12 +1,12 @@
 {
-    "bustime-response": {
-        "directions": [
-            {
-                "dir": "Eastbound"
-            },
-            {
-                "dir": "Westbound"
-            }
-        ]
-    }
+  "bustime-response": {
+    "directions": [
+      {
+        "dir": "Eastbound"
+      },
+      {
+        "dir": "Westbound"
+      }
+    ]
+  }
 }

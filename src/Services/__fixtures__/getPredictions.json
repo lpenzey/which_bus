@@ -1,60 +1,60 @@
 {
-    "bustime-response": {
-        "prd": [
-            {
-                "tmstmp": "20190708 11:55",
-                "typ": "A",
-                "stpnm": "Madison & Jefferson",
-                "stpid": "456",
-                "vid": "8163",
-                "dstp": 3859,
-                "rt": "20",
-                "rtdd": "20",
-                "rtdir": "Westbound",
-                "des": "Austin",
-                "prdtm": "20190708 12:02",
-                "tablockid": "20 -802",
-                "tatripid": "1040686",
-                "dly": false,
-                "prdctdn": "6",
-                "zone": ""
-            },
-            {
-                "tmstmp": "20190708 11:55",
-                "typ": "A",
-                "stpnm": "Madison & Jefferson",
-                "stpid": "456",
-                "vid": "1809",
-                "dstp": 5777,
-                "rt": "20",
-                "rtdd": "20",
-                "rtdir": "Westbound",
-                "des": "Austin",
-                "prdtm": "20190708 12:05",
-                "tablockid": "20 -807",
-                "tatripid": "1040684",
-                "dly": false,
-                "prdctdn": "9",
-                "zone": ""
-            },
-            {
-                "tmstmp": "20190708 11:55",
-                "typ": "A",
-                "stpnm": "Madison & Jefferson",
-                "stpid": "456",
-                "vid": "8138",
-                "dstp": 9760,
-                "rt": "20",
-                "rtdd": "20",
-                "rtdir": "Westbound",
-                "des": "Austin",
-                "prdtm": "20190708 12:15",
-                "tablockid": "N20 -892",
-                "tatripid": "1040690",
-                "dly": false,
-                "prdctdn": "19",
-                "zone": ""
-            }
-        ]
-    }
+  "bustime-response": {
+    "prd": [
+      {
+        "tmstmp": "20190708 11:55",
+        "typ": "A",
+        "stpnm": "Madison & Jefferson",
+        "stpid": "456",
+        "vid": "8163",
+        "dstp": 3859,
+        "rt": "20",
+        "rtdd": "20",
+        "rtdir": "Westbound",
+        "des": "Austin",
+        "prdtm": "20190708 12:02",
+        "tablockid": "20 -802",
+        "tatripid": "1040686",
+        "dly": false,
+        "prdctdn": "6",
+        "zone": ""
+      },
+      {
+        "tmstmp": "20190708 11:55",
+        "typ": "A",
+        "stpnm": "Madison & Jefferson",
+        "stpid": "456",
+        "vid": "1809",
+        "dstp": 5777,
+        "rt": "20",
+        "rtdd": "20",
+        "rtdir": "Westbound",
+        "des": "Austin",
+        "prdtm": "20190708 12:05",
+        "tablockid": "20 -807",
+        "tatripid": "1040684",
+        "dly": false,
+        "prdctdn": "9",
+        "zone": ""
+      },
+      {
+        "tmstmp": "20190708 11:55",
+        "typ": "A",
+        "stpnm": "Madison & Jefferson",
+        "stpid": "456",
+        "vid": "8138",
+        "dstp": 9760,
+        "rt": "20",
+        "rtdd": "20",
+        "rtdir": "Westbound",
+        "des": "Austin",
+        "prdtm": "20190708 12:15",
+        "tablockid": "N20 -892",
+        "tatripid": "1040690",
+        "dly": false,
+        "prdctdn": "19",
+        "zone": ""
+      }
+    ]
+  }
 }

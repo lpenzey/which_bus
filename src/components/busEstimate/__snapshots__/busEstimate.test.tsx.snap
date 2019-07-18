@@ -15,7 +15,7 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       <button
         aria-expanded="false"
         aria-haspopup="true"
-        class="dropdown-toggle btn btn-primary"
+        class="dropdown-toggle btn btn-secondary"
         id="dropdown-basic"
         type="button"
       >
@@ -789,7 +789,7 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       <button
         aria-expanded="false"
         aria-haspopup="true"
-        class="dropdown-toggle btn btn-primary"
+        class="dropdown-toggle btn btn-secondary"
         id="dropdown-basic"
         type="button"
       >
@@ -819,7 +819,7 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       <button
         aria-expanded="false"
         aria-haspopup="true"
-        class="dropdown-toggle btn btn-primary"
+        class="dropdown-toggle btn btn-secondary"
         id="dropdown-basic"
         type="button"
       >
