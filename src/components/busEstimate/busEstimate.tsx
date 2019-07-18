@@ -1,12 +1,17 @@
 import React from 'react';
 import './busEstimate.css';
-import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import GenericDropdown from '../genericDropdown/genericDropdown';
 
 interface busEstimateState {
-    route: string;
-    time: string;
-    stopName: string;
-    direction: string;
+    routes: Array<any>;
+    directions: Array<any>;
+    stops: Array<any>;
+    selectedRoute: string;
+    selectedDirection: string;
+    selectedStop: string;
+    stpid: string;
+    time: string
 }
 
 interface busEstimateProps {
@@ -16,45 +21,100 @@ interface busEstimateProps {
 class BusEstimate extends React.Component<busEstimateProps, busEstimateState> {
     constructor(props: busEstimateProps) {
         super(props);
+        this.handleRouteChange = this.handleRouteChange.bind(this);
+        this.handleDirectionChange = this.handleDirectionChange.bind(this);
+        this.handleStopChange = this.handleStopChange.bind(this);
         this.state = {
-            route: "",
+            routes: [],
+            directions: [],
+            stops: [],
+            selectedRoute: "Select Route",
+            selectedDirection: "Select Direction",
+            selectedStop: "Select Stop",
             time: "",
-            stopName: "",
-            direction: ""
+            stpid: ""
         };
     }
 
-    getEstimate = async () => {
-        let data = await this.props.api.requestTimeEstimate(20, 456, "json")
-        let dataRoot = data["bustime-response"].prd[0]
-        let updatedTime = dataRoot.prdtm.split(' ')[1]
-        let updatedStopName = dataRoot.stpnm
-        let updatedRoute = dataRoot.rt
-        let updatedDirection = dataRoot.rtdir
+    handleRouteChange(route: string) {
+        this.setState({ selectedRoute: route }, () => { this.populateDirections() });
+    }
 
+    handleDirectionChange(direction: string) {
+        this.setState({ selectedDirection: direction }, () => { this.populateStops() });
+    }
+
+    handleStopChange(stop: string) {
+        this.getStpid(stop)
+        this.setState({ selectedStop: stop }, () => { this.getEstimate() });
+    }
+
+    populateDirections = async () => {
+        let data = await this.props.api.getDirections(this.state.selectedRoute, "json")
+        let availableDirections = data["bustime-response"].directions.map((direction: any) => { return { value: direction.dir, display: direction.dir } })
 
         this.setState({
-            time: "ARRIVING AT: " + updatedTime,
-            stopName: "STOP: " + updatedStopName,
-            route: "ROUTE: " + updatedRoute,
-            direction: "DIRECTION: " + updatedDirection
+            directions: availableDirections
+        })
+    }
+
+    populateStops = async () => {
+        let data = await this.props.api.getStops(this.state.selectedRoute, this.state.selectedDirection, "json")
+        let availableStops = data["bustime-response"].stops.map((stop: any) => { return { value: stop.stpnm, id: stop.stpid, display: stop.stpnm } })
+
+        this.setState({
+            stops: availableStops
+        })
+    }
+
+    getEstimate = async () => {
+        let data = await this.props.api.requestTimeEstimate(this.state.selectedRoute, this.state.stpid, "json")
+        let dataRoot = data["bustime-response"].prd[0]
+        let updatedTime = dataRoot.prdtm.split(' ')[1]
+
+        this.setState({
+            time: "Next Bus Arrives At " + updatedTime,
         });
+    }
+
+    getStpid(stopName: string) {
+        let stopObject = this.state.stops.find(stop => stop.display === stopName);
+
+        this.setState({
+            stpid: stopObject.id
+        })
+    }
+
+    componentDidMount = async () => {
+        let data = await this.props.api.getAllRoutes("json")
+        let allRoutes = data["bustime-response"].routes.map((route: any) => { return { value: route.rt, display: route.rt } })
+
+        this.setState({
+            routes: allRoutes
+        })
     }
 
     render() {
         return (
-            <div className="timeTable">
+            <div className="timeTable" data-testid="dropdown-container">
+                <ButtonToolbar>
+                    <GenericDropdown
+                        display={this.state.selectedRoute}
+                        contents={this.state.routes}
+                        handleChange={this.handleRouteChange} />
+                    <GenericDropdown
+                        display={this.state.selectedDirection}
+                        contents={this.state.directions}
+                        handleChange={this.handleDirectionChange} />
+                    <GenericDropdown
+                        display={this.state.selectedStop}
+                        contents={this.state.stops}
+                        handleChange={this.handleStopChange} />
+                </ButtonToolbar>
                 <div className="innerText" data-testid="estimate">
-                    {this.state.route}
-                    <br></br>
-                    {this.state.stopName}
-                    <br></br>
-                    {this.state.direction}
-                    <br></br>
                     {this.state.time}
                     <br></br>
                 </div>
-                <Button variant="light" id="estimateButton" onClick={this.getEstimate.bind(this)}>Get Estimate</Button>
             </div>
         );
     }
