@@ -1,17 +1,23 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import "./navBar.css";
+import styled from "styled-components";
 
 const NavBar: React.FC = () => {
+  const Navbar = styled.nav`
+    sticky: top;
+    text-align: left;
+    color: papayawhip;
+    font: 2em "Montserrat", sans-serif;
+    background-color: palevioletred;
+    padding: 0.4em;
+    opacity: 0.93;
+  `;
   return (
     <div>
-      <Navbar sticky="top" variant="dark" className="navbar">
-        <Navbar.Brand className="text">
-          WHICH BUS{" "}
-          <span role="img" aria-label="Thinking emoji">
-            🧐
-          </span>
-        </Navbar.Brand>
+      <Navbar>
+        WHICH BUS{" "}
+        <span role="img" aria-label="Thinking emoji">
+          🧐
+        </span>
       </Navbar>
     </div>
   );

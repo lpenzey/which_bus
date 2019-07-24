@@ -1,47 +1,36 @@
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import "./genericDropdown.css";
+import styled from "styled-components";
 
-interface genericDropdownProps {
-  display: string;
-  contents: Array<any>;
-  handleChange: any;
+export default function Dropdown(props: any) {
+  function handleChange(e: any) {
+    props.handleChange(e.target.value);
+  }
+
+  const Select = styled.select`
+    font-size: 1.5em;
+    color: charcoal;
+    font: 1em "Montserrat", sans-serif;
+    height: 3em;
+    width: 100%;
+    padding: 1em;
+    margin: auto;
+    justify-content: center;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  `;
+
+  return (
+    <Select
+      data-testid={props.display}
+      defaultValue={props.display}
+      onChange={handleChange}
+    >
+      {props.contents.map(
+        (item: { value: string; display: React.ReactNode }) => (
+          <option key={item.value} value={item.value}>
+            {item.display}
+          </option>
+        )
+      )}
+    </Select>
+  );
 }
-
-class GenericDropdown extends React.Component<genericDropdownProps, {}> {
-  constructor(props: genericDropdownProps) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e: any) {
-    this.props.handleChange(e.target.value);
-  }
-
-  componentDidMount() {}
-
-  render() {
-    return (
-      <Dropdown>
-        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-          {this.props.display}
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          {this.props.contents.map(item => (
-            <Dropdown.Item
-              as="button"
-              onClick={this.handleChange}
-              key={item.value}
-              value={item.value}
-            >
-              {item.display}
-            </Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
-    );
-  }
-}
-
-export default GenericDropdown;

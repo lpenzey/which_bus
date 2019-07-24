@@ -1,10 +1,10 @@
 import axios from "axios";
 import BusTrackerAPI from "./busTrackerAPI";
-const predictionResponse: JSON = require("./__fixtures__/getPredictions.json");
-const patternResponse: JSON = require("./__fixtures__/getPatterns.json");
-const routesResponse: JSON = require("./__fixtures__/getRoutes.json");
-const stopsResponse: JSON = require("./__fixtures__/getStops.json");
-const directionsResponse: JSON = require("./__fixtures__/getDirections.json");
+import predictionResponse from "./__fixtures__/getPredictions.json";
+import patternResponse from "./__fixtures__/getPatterns.json";
+import routesResponse from "./__fixtures__/getRoutes.json";
+import stopsResponse from "./__fixtures__/getStops.json";
+import directionsResponse from "./__fixtures__/getDirections.json";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
