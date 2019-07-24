@@ -1,151 +1,143 @@
-import React from "react";
-import "./busEstimate.css";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import GenericDropdown from "../genericDropdown/genericDropdown";
+import React, { useState, useEffect, useRef } from "react";
+import Dropdown from "../genericDropdown/genericDropdown";
+import styled from "styled-components";
+import img from "./img.png";
 
-interface busEstimateState {
-  routes: Array<any>;
-  directions: Array<any>;
-  stops: Array<any>;
-  selectedRoute: string;
-  selectedDirection: string;
-  selectedStop: string;
-  stpid: string;
-  time: string;
-}
+export default function BusEstimate(props: any) {
+  const [routes, setRoutes] = useState(Array<any>());
+  const [directions, setDirections] = useState(Array<any>());
+  const [stops, setStops] = useState(Array<any>());
+  const [update, setUpdate] = useState("");
+  const time = useRef("");
+  const stpid = useRef("");
+  const display = useRef("none");
+  const selectedStop = useRef("Select Stop");
+  const selectedRoute = useRef("Select Route");
+  const selectedDirection = useRef("Select Direction");
 
-interface busEstimateProps {
-  api: any;
-}
-
-class BusEstimate extends React.Component<busEstimateProps, busEstimateState> {
-  constructor(props: busEstimateProps) {
-    super(props);
-    this.handleRouteChange = this.handleRouteChange.bind(this);
-    this.handleDirectionChange = this.handleDirectionChange.bind(this);
-    this.handleStopChange = this.handleStopChange.bind(this);
-    this.state = {
-      routes: [],
-      directions: [],
-      stops: [],
-      selectedRoute: "Select Route",
-      selectedDirection: "Select Direction",
-      selectedStop: "Select Stop",
-      time: "",
-      stpid: ""
-    };
+  function handleRouteChange(route: string) {
+    selectedRoute.current = route;
+    populateDirections();
   }
 
-  handleRouteChange(route: string) {
-    this.setState({ selectedRoute: route }, () => {
-      this.populateDirections();
-    });
+  function handleDirectionChange(direction: string) {
+    selectedDirection.current = direction;
+    populateStops(direction);
   }
 
-  handleDirectionChange(direction: string) {
-    this.setState({ selectedDirection: direction }, () => {
-      this.populateStops();
-    });
+  function handleStopChange(stop: string) {
+    getStpid(stop);
+    selectedStop.current = stop;
+    getEstimate();
   }
 
-  handleStopChange(stop: string) {
-    this.getStpid(stop);
-    this.setState({ selectedStop: stop }, () => {
-      this.getEstimate();
-    });
-  }
+  const populateDirections = async () => {
+    let data = await props.api.getDirections(selectedRoute.current, "json");
 
-  populateDirections = async () => {
-    let data = await this.props.api.getDirections(
-      this.state.selectedRoute,
-      "json"
-    );
     let availableDirections = data["bustime-response"].directions.map(
       (direction: any) => {
         return { value: direction.dir, display: direction.dir };
       }
     );
 
-    this.setState({
-      directions: availableDirections
-    });
+    setDirections(availableDirections);
   };
 
-  populateStops = async () => {
-    let data = await this.props.api.getStops(
-      this.state.selectedRoute,
-      this.state.selectedDirection,
+  const populateStops = async (direction: string) => {
+    let data = await props.api.getStops(
+      selectedRoute.current,
+      direction,
       "json"
     );
     let availableStops = data["bustime-response"].stops.map((stop: any) => {
       return { value: stop.stpnm, id: stop.stpid, display: stop.stpnm };
     });
 
-    this.setState({
-      stops: availableStops
-    });
+    setStops(availableStops);
   };
 
-  getEstimate = async () => {
-    let data = await this.props.api.requestTimeEstimate(
-      this.state.selectedRoute,
-      this.state.stpid,
+  const getEstimate = async () => {
+    let data = await props.api.requestTimeEstimate(
+      selectedRoute.current,
+      stpid.current,
       "json"
     );
     let dataRoot = data["bustime-response"].prd[0];
     let updatedTime = dataRoot.prdtm.split(" ")[1];
 
-    this.setState({
-      time: "Next Bus Arrives At " + updatedTime
-    });
+    time.current = "Next Bus Arrives At " + updatedTime;
+    display.current = "block";
+    setUpdate(stpid.current);
   };
 
-  getStpid(stopName: string) {
-    let stopObject = this.state.stops.find(stop => stop.display === stopName);
+  function getStpid(stopName: string) {
+    let stopObject = stops.find(stop => stop.display === stopName);
 
-    this.setState({
-      stpid: stopObject.id
-    });
+    stpid.current = stopObject.id;
   }
 
-  componentDidMount = async () => {
-    let data = await this.props.api.getAllRoutes("json");
-    let allRoutes = data["bustime-response"].routes.map((route: any) => {
-      return { value: route.rt, display: route.rt };
-    });
+  useEffect(() => {
+    setRoutes(props.routes);
+  }, [props.routes]);
 
-    this.setState({
-      routes: allRoutes
-    });
-  };
+  const Wrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5em;
+    justify-content: center;
+    background-image: url(${img});
+    border-radius: 4px;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+    width: 60%;
+    margin: auto;
+    min-width: 250px;
+  `;
 
-  render() {
-    return (
-      <div className="timeTable" data-testid="dropdown-container">
-        <ButtonToolbar>
-          <GenericDropdown
-            display={this.state.selectedRoute}
-            contents={this.state.routes}
-            handleChange={this.handleRouteChange}
-          />
-          <GenericDropdown
-            display={this.state.selectedDirection}
-            contents={this.state.directions}
-            handleChange={this.handleDirectionChange}
-          />
-          <GenericDropdown
-            display={this.state.selectedStop}
-            contents={this.state.stops}
-            handleChange={this.handleStopChange}
-          />
-        </ButtonToolbar>
-        <div className="innerText" data-testid="estimate">
-          {this.state.time}
-          <br />
-        </div>
-      </div>
-    );
-  }
+  const WrapperInner = styled.div`
+    padding: 0.5em;
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+  `;
+
+  const Text = styled.span`
+    display: ${display.current};
+    border-radius: 4px;
+    background-color: grey;
+    color: rgb(243, 243, 243);
+    font-size: 30px;
+    text-shadow: 1px 1px 2px #3d3d3d;
+    text-align: center;
+    width: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+  `;
+  return (
+    <Wrapper>
+      <WrapperInner>
+        <Dropdown
+          display={selectedRoute.current}
+          contents={routes}
+          handleChange={handleRouteChange}
+        />
+      </WrapperInner>
+
+      <WrapperInner>
+        <Dropdown
+          display={selectedDirection.current}
+          contents={directions}
+          handleChange={handleDirectionChange}
+        />
+      </WrapperInner>
+      <WrapperInner>
+        <Dropdown
+          display={selectedStop.current}
+          contents={stops}
+          handleChange={handleStopChange}
+        />
+      </WrapperInner>
+
+      <Text data-testid="estimate">{time.current}</Text>
+    </Wrapper>
+  );
 }
-
-export default BusEstimate;

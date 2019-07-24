@@ -1,1251 +1,1026 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Displays time estimate when route, direction, and stop are selected 1`] = `
-<div
-  class="timeTable"
-  data-testid="dropdown-container"
->
+<div>
   <div
-    class="btn-toolbar"
-    role="toolbar"
+    class="sc-ckVGcZ gOivCI"
   >
     <div
-      class="dropdown"
+      class="sc-jKJlTe dnXrBc"
     >
-      <button
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="dropdown-toggle btn btn-secondary"
-        id="dropdown-basic"
-        type="button"
+      <select
+        class="sc-hMqMXs kotQjw"
+        data-testid="1"
       >
-        1
-      </button>
-      <div
-        aria-labelledby="dropdown-basic"
-        class="dropdown-menu"
-      >
-        <button
-          class="dropdown-item"
+        <option
+          selected=""
           value="1"
         >
           1
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="2"
         >
           2
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="3"
         >
           3
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="4"
         >
           4
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="5"
         >
           5
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="6"
         >
           6
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="7"
         >
           7
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="8"
         >
           8
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="8A"
         >
           8A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="9"
         >
           9
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="X9"
         >
           X9
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="10"
         >
           10
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="11"
         >
           11
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="12"
         >
           12
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="J14"
         >
           J14
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="15"
         >
           15
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="18"
         >
           18
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="19"
         >
           19
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="20"
         >
           20
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="21"
         >
           21
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="22"
         >
           22
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="24"
         >
           24
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="26"
         >
           26
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="28"
         >
           28
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="29"
         >
           29
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="30"
         >
           30
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="31"
         >
           31
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="34"
         >
           34
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="35"
         >
           35
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="36"
         >
           36
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="37"
         >
           37
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="39"
         >
           39
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="43"
         >
           43
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="44"
         >
           44
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="47"
         >
           47
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="48"
         >
           48
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="49"
         >
           49
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="49B"
         >
           49B
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="X49"
         >
           X49
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="50"
         >
           50
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="51"
         >
           51
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="52"
         >
           52
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="52A"
         >
           52A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="53"
         >
           53
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="53A"
         >
           53A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="54"
         >
           54
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="54A"
         >
           54A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="54B"
         >
           54B
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="55"
         >
           55
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="55A"
         >
           55A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="55N"
         >
           55N
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="56"
         >
           56
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="57"
         >
           57
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="59"
         >
           59
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="60"
         >
           60
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="62"
         >
           62
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="62H"
         >
           62H
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="63"
         >
           63
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="63W"
         >
           63W
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="65"
         >
           65
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="66"
         >
           66
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="67"
         >
           67
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="68"
         >
           68
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="70"
         >
           70
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="71"
         >
           71
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="72"
         >
           72
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="73"
         >
           73
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="74"
         >
           74
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="75"
         >
           75
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="76"
         >
           76
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="77"
         >
           77
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="78"
         >
           78
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="79"
         >
           79
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="80"
         >
           80
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="81"
         >
           81
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="81W"
         >
           81W
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="82"
         >
           82
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="84"
         >
           84
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="85"
         >
           85
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="85A"
         >
           85A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="86"
         >
           86
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="87"
         >
           87
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="88"
         >
           88
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="90"
         >
           90
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="91"
         >
           91
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="92"
         >
           92
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="93"
         >
           93
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="94"
         >
           94
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="95"
         >
           95
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="96"
         >
           96
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="97"
         >
           97
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="X98"
         >
           X98
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="100"
         >
           100
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="103"
         >
           103
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="106"
         >
           106
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="108"
         >
           108
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="111"
         >
           111
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="111A"
         >
           111A
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="112"
         >
           112
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="115"
         >
           115
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="119"
         >
           119
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="120"
         >
           120
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="121"
         >
           121
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="124"
         >
           124
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="125"
         >
           125
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="126"
         >
           126
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="130"
         >
           130
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="134"
         >
           134
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="135"
         >
           135
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="136"
         >
           136
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="143"
         >
           143
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="146"
         >
           146
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="147"
         >
           147
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="148"
         >
           148
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="151"
         >
           151
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="152"
         >
           152
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="155"
         >
           155
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="156"
         >
           156
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="157"
         >
           157
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="165"
         >
           165
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="169"
         >
           169
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="171"
         >
           171
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="172"
         >
           172
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="192"
         >
           192
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="201"
         >
           201
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="206"
         >
           206
-        </button>
-      </div>
+        </option>
+      </select>
     </div>
     <div
-      class="dropdown"
+      class="sc-jKJlTe dnXrBc"
     >
-      <button
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="dropdown-toggle btn btn-secondary"
-        id="dropdown-basic"
-        type="button"
+      <select
+        class="sc-kEYyzF cYrBUT"
+        data-testid="Eastbound"
       >
-        Eastbound
-      </button>
-      <div
-        aria-labelledby="dropdown-basic"
-        class="dropdown-menu"
-      >
-        <button
-          class="dropdown-item"
+        <option
+          selected=""
           value="Eastbound"
         >
           Eastbound
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Westbound"
         >
           Westbound
-        </button>
-      </div>
+        </option>
+      </select>
     </div>
     <div
-      class="dropdown"
+      class="sc-jKJlTe dnXrBc"
     >
-      <button
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="dropdown-toggle btn btn-secondary"
-        id="dropdown-basic"
-        type="button"
+      <select
+        class="sc-kkGfuU gmewp"
+        data-testid="1633 W Madison"
       >
-        1633 W Madison
-      </button>
-      <div
-        aria-labelledby="dropdown-basic"
-        class="dropdown-menu"
-      >
-        <button
-          class="dropdown-item"
+        <option
+          selected=""
           value="1633 W Madison"
         >
           1633 W Madison
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Columbus & Randolph"
         >
           Columbus & Randolph
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Halsted & Madison"
         >
           Halsted & Madison
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Aberdeen "
         >
           Madison & Aberdeen 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Albany "
         >
           Madison & Albany 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Ashland"
         >
           Madison & Ashland
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Austin Terminal"
         >
           Madison & Austin Terminal
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & California"
         >
           Madison & California
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Campbell "
         >
           Madison & Campbell 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Central"
         >
           Madison & Central
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Central Park"
         >
           Madison & Central Park
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Cicero"
         >
           Madison & Cicero
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Damen"
         >
           Madison & Damen
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Francisco"
         >
           Madison & Francisco
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Hamlin"
         >
           Madison & Hamlin
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Homan"
         >
           Madison & Homan
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Hoyne"
         >
           Madison & Hoyne
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Karlov"
         >
           Madison & Karlov
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Kedzie"
         >
           Madison & Kedzie
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Keeler"
         >
           Madison & Keeler
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Kenton"
         >
           Madison & Kenton
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Kilbourn"
         >
           Madison & Kilbourn
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Kildare"
         >
           Madison & Kildare
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Kilpatrick"
         >
           Madison & Kilpatrick
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Kostner"
         >
           Madison & Kostner
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Laflin"
         >
           Madison & Laflin
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Laramie"
         >
           Madison & Laramie
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Lavergne"
         >
           Madison & Lavergne
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Leavitt"
         >
           Madison & Leavitt
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Leclaire"
         >
           Madison & Leclaire
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Lockwood "
         >
           Madison & Lockwood 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Long"
         >
           Madison & Long
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Loomis "
         >
           Madison & Loomis 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Lotus "
         >
           Madison & Lotus 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Mayfield"
         >
           Madison & Mayfield
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Menard"
         >
           Madison & Menard
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Morgan"
         >
           Madison & Morgan
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Oakley"
         >
           Madison & Oakley
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Parkside"
         >
           Madison & Parkside
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Paulina"
         >
           Madison & Paulina
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Peoria"
         >
           Madison & Peoria
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Pine"
         >
           Madison & Pine
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Pulaski"
         >
           Madison & Pulaski
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Racine "
         >
           Madison & Racine 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Sacramento"
         >
           Madison & Sacramento
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Spaulding"
         >
           Madison & Spaulding
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Springfield"
         >
           Madison & Springfield
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & St. Louis"
         >
           Madison & St. Louis
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Talman"
         >
           Madison & Talman
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Throop "
         >
           Madison & Throop 
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & United Center (1900 W)"
         >
           Madison & United Center (1900 W)
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Waller"
         >
           Madison & Waller
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Washtenaw"
         >
           Madison & Washtenaw
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Western"
         >
           Madison & Western
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Madison & Wood"
         >
           Madison & Wood
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Michigan & E. Wacker"
         >
           Michigan & E. Wacker
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Michigan & Randolph"
         >
           Michigan & Randolph
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Michigan & South Water"
         >
           Michigan & South Water
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Wacker (Upper) & Columbus"
         >
           Wacker (Upper) & Columbus
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Wacker (Upper) & Stetson"
         >
           Wacker (Upper) & Stetson
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & Canal"
         >
           Washington & Canal
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & Clark/Dearborn"
         >
           Washington & Clark/Dearborn
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & Franklin"
         >
           Washington & Franklin
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & Halsted"
         >
           Washington & Halsted
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & Jefferson"
         >
           Washington & Jefferson
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & Lasalle"
         >
           Washington & Lasalle
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington & State"
         >
           Washington & State
-        </button>
-        <button
-          class="dropdown-item"
+        </option>
+        <option
           value="Washington + Wabash (Nearside Garland)"
         >
           Washington + Wabash (Nearside Garland)
-        </button>
-      </div>
+        </option>
+      </select>
     </div>
-  </div>
-  <div
-    class="innerText"
-    data-testid="estimate"
-  >
-    Next Bus Arrives At 12:02
-    <br />
+    <span
+      class="sc-eNQAEJ doxenR"
+      data-testid="estimate"
+    >
+      Next Bus Arrives At 12:02
+    </span>
   </div>
 </div>
 `;

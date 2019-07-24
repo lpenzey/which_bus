@@ -10,34 +10,37 @@ import {
 
 afterEach(cleanup);
 it("Displays time estimate when route, direction, and stop are selected", async () => {
-  const { getByText, getByTestId, getByDisplayValue } = render(
-    <BusEstimate api={StubBusTrackerAPI} />
+  let data: any = await StubBusTrackerAPI.getAllRoutes("json");
+  let allRoutes = data["bustime-response"].routes.map((route: any) => {
+    return { value: route.rt, display: route.rt };
+  });
+
+  const { getByText, getByTestId, container, getByDisplayValue } = render(
+    <BusEstimate api={StubBusTrackerAPI} routes={allRoutes} />
   );
 
-  fireEvent.click(getByText("Select Route"));
+  const routes = getByTestId("Select Route");
+  fireEvent.change(routes);
 
-  const waitForRouteUpdate = await waitForElement(() =>
-    getByTestId("dropdown-container")
-  );
-
-  fireEvent.click(getByText("1"));
+  const button = getByText("8A");
+  fireEvent.change(button);
 
   const waitForRouteClick = await waitForElement(() =>
-    getByTestId("dropdown-container")
+    getByTestId("Select Route")
   );
 
-  fireEvent.click(getByText("Select Direction"));
-  fireEvent.click(getByText("Eastbound"));
+  fireEvent.change(getByTestId("Select Direction"));
+  fireEvent.change(getByText("Eastbound"));
 
   const waitForDirectionSelection = await waitForElement(() =>
-    getByTestId("dropdown-container")
+    getByTestId("Select Direction")
   );
 
-  fireEvent.click(getByText("Select Stop"));
-  fireEvent.click(getByText("1633 W Madison"));
+  fireEvent.change(getByTestId("Select Stop"));
+  fireEvent.change(getByText("1633 W Madison"));
 
   const estimateContainer = await waitForElement(() =>
-    getByTestId("dropdown-container")
+    getByTestId("Select Stop")
   );
-  expect(estimateContainer).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 });
