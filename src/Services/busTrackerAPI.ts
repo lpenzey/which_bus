@@ -13,6 +13,13 @@ const BusTrackerAPI = {
     );
     return response.data;
   },
+  registerUser: async (userName: String, password: String) => {
+    const response = await axios.post("http://127.0.0.1:8080/users/register", {
+      name: userName,
+      password: password
+    });
+    return response.data;
+  },
   requestTimeEstimate: async (route: number, stpid: number, format: string) => {
     const response = await axios.get(
       "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpredictions",
@@ -54,7 +61,7 @@ const BusTrackerAPI = {
         }
       }
     );
-
+    console.log(response);
     return response.data;
   },
 

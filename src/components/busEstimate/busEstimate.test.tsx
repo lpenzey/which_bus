@@ -30,15 +30,15 @@ it("Displays time estimate when route, direction, and stop are selected", async 
   );
 
   fireEvent.change(getByTestId("Select Direction"));
-  fireEvent.change(getByText("Eastbound"));
+  fireEvent.change(getByText("Westbound"));
 
   const waitForDirectionSelection = await waitForElement(() =>
     getByTestId("Select Direction")
   );
 
-  fireEvent.change(getByTestId("Select Stop"));
+  fireEvent.click(getByTestId("Select Stop"));
+  fireEvent.click(getByText("1633 W Madison"));
   fireEvent.change(getByText("1633 W Madison"));
-
   const estimateContainer = await waitForElement(() =>
     getByTestId("Select Stop")
   );

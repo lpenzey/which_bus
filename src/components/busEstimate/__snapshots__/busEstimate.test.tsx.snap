@@ -3,17 +3,21 @@
 exports[`Displays time estimate when route, direction, and stop are selected 1`] = `
 <div>
   <div
-    class="sc-ckVGcZ gOivCI"
+    class="sc-fjdhpX dxjXGH"
   >
     <div
-      class="sc-jKJlTe dnXrBc"
+      class="sc-jzJRlG dpZxtS"
     >
       <select
-        class="sc-hMqMXs kotQjw"
-        data-testid="1"
+        class="sc-cSHVUG eaSJHz"
+        data-testid=""
       >
         <option
+          hidden=""
           selected=""
+          value=""
+        />
+        <option
           value="1"
         >
           1
@@ -646,14 +650,18 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-jKJlTe dnXrBc"
+      class="sc-jzJRlG dpZxtS"
     >
       <select
-        class="sc-kEYyzF cYrBUT"
-        data-testid="Eastbound"
+        class="sc-kAzzGY jtwBvp"
+        data-testid=""
       >
         <option
+          hidden=""
           selected=""
+          value=""
+        />
+        <option
           value="Eastbound"
         >
           Eastbound
@@ -666,14 +674,19 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-jKJlTe dnXrBc"
+      class="sc-jzJRlG dpZxtS"
     >
       <select
-        class="sc-kkGfuU gmewp"
-        data-testid="1633 W Madison"
+        class="sc-chPdSV hwwITN"
+        data-testid="Select Stop"
       >
         <option
-          selected=""
+          hidden=""
+          value=""
+        >
+          Select Stop
+        </option>
+        <option
           value="1633 W Madison"
         >
           1633 W Madison
@@ -1015,12 +1028,6 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
         </option>
       </select>
     </div>
-    <span
-      class="sc-eNQAEJ doxenR"
-      data-testid="estimate"
-    >
-      Next Bus Arrives At 12:02
-    </span>
   </div>
 </div>
 `;

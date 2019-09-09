@@ -12,8 +12,8 @@ export default function Dropdown(props: any) {
     font: 1em "Montserrat", sans-serif;
     height: 3em;
     width: 100%;
-    padding: 1em;
-    margin: auto;
+    padding: 0.5em;
+
     justify-content: center;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   `;
@@ -24,6 +24,9 @@ export default function Dropdown(props: any) {
       defaultValue={props.display}
       onChange={handleChange}
     >
+      <option value="" hidden>
+        {props.display}
+      </option>
       {props.contents.map(
         (item: { value: string; display: React.ReactNode }) => (
           <option key={item.value} value={item.value}>
