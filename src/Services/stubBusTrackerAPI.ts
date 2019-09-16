@@ -5,19 +5,19 @@ const stopsResponse: JSON = require("./__fixtures__/getStops.json");
 const directionsResponse: JSON = require("./__fixtures__/getDirections.json");
 
 const StubBusTrackerAPI = {
-  getAllRoutes: async (format: string) => {
+  getAllRoutes: async () => {
     return routesResponse;
   },
-  requestTimeEstimate: async (route: number, stpid: number, format: string) => {
+  registerUser: async (userName: String, password: String) => {
+    return routesResponse;
+  },
+  requestTimeEstimate: async (route: number, stpid: number) => {
     return predictionResponse;
   },
-  getFullRoute: async (route: number, format: string) => {
-    return patternResponse;
-  },
-  getStops: async (route: number, direction: string, format: string) => {
+  getStops: async (route: number, direction: string) => {
     return stopsResponse;
   },
-  getDirections: async (route: number, format: string) => {
+  getDirections: async (route: number) => {
     return directionsResponse;
   }
 };

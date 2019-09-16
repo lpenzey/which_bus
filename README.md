@@ -1,14 +1,16 @@
-## Which Bus? 🤷‍
+## Which Bus? 🧐
 
-A simple app that finally answers the age old question: which bus should I take? 
+A simple app that finally answers the age old question: which bus should I take?
 
-View side-by-side comparisons of the estimated arrival times of CTA buses. 
+View side-by-side comparisons of the estimated arrival times of CTA buses.
+
+View staging app [here](https://which-bus-staging.herokuapp.com/)(May take Heroku a bit of time to spin up)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

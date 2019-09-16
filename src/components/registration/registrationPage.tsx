@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import GenericButton from "../genericButton/genericButton";
-import { navigate } from "hookrouter";
+import RegistrationForm from "./registrationForm";
+import BusTrackerAPI from "../../Services/busTrackerAPI";
 
-const NavBar: React.FC = () => {
+const RegistrationPage: React.FC = () => {
   const Navbar = styled.nav`
     sticky: top;
     text-align: left;
@@ -20,7 +21,7 @@ const NavBar: React.FC = () => {
   `;
 
   function navigateToLogin() {
-    navigate("/login");
+    // navigate("/login");
   }
   return (
     <div>
@@ -33,8 +34,9 @@ const NavBar: React.FC = () => {
         </div>
         <GenericButton handleChange={navigateToLogin} label="Login" />
       </Navbar>
+      <RegistrationForm api={BusTrackerAPI} />
     </div>
   );
 };
 
-export default NavBar;
+export default RegistrationPage;

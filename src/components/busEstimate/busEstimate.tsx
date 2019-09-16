@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import Dropdown from "../genericDropdown/genericDropdown";
 import styled from "styled-components";
 import img from "./img.png";
+import BusArrival from "../busArrival/busArrival";
+import GenericButton from "components/genericButton/genericButton";
 
 export default function BusEstimate(props: any) {
   const [routes, setRoutes] = useState(Array<any>());
   const [directions, setDirections] = useState(Array<any>());
   const [stops, setStops] = useState(Array<any>());
-  const [update, setUpdate] = useState("");
-  const time = useRef("");
+  const [estimates, setEstimates] = useState(Array<any>());
+  const [, setUpdate] = useState("");
   const stpid = useRef("");
   const display = useRef("none");
   const selectedStop = useRef("Select Stop");
@@ -32,7 +34,7 @@ export default function BusEstimate(props: any) {
   }
 
   const populateDirections = async () => {
-    let data = await props.api.getDirections(selectedRoute.current, "json");
+    let data = await props.api.getDirections(selectedRoute.current);
 
     let availableDirections = data["bustime-response"].directions.map(
       (direction: any) => {
@@ -44,11 +46,7 @@ export default function BusEstimate(props: any) {
   };
 
   const populateStops = async (direction: string) => {
-    let data = await props.api.getStops(
-      selectedRoute.current,
-      direction,
-      "json"
-    );
+    let data = await props.api.getStops(selectedRoute.current, direction);
     let availableStops = data["bustime-response"].stops.map((stop: any) => {
       return { value: stop.stpnm, id: stop.stpid, display: stop.stpnm };
     });
@@ -59,20 +57,27 @@ export default function BusEstimate(props: any) {
   const getEstimate = async () => {
     let data = await props.api.requestTimeEstimate(
       selectedRoute.current,
-      stpid.current,
-      "json"
+      stpid.current
     );
-    let dataRoot = data["bustime-response"].prd[0];
-    let updatedTime = dataRoot.prdtm.split(" ")[1];
+    let availableEstimates = data["bustime-response"].prd.map(
+      (estimate: any) => {
+        return {
+          time: estimate.prdctdn,
+          id: estimate.vid,
+          delay: estimate.dly
+        };
+      }
+    );
 
-    time.current = "Next Bus Arrives At " + updatedTime;
     display.current = "block";
-    setUpdate(stpid.current);
+    setEstimates(availableEstimates);
+    let i = 0;
+    setUpdate(stpid.current + i);
+    i++;
   };
 
   function getStpid(stopName: string) {
     let stopObject = stops.find(stop => stop.display === stopName);
-
     stpid.current = stopObject.id;
   }
 
@@ -81,42 +86,46 @@ export default function BusEstimate(props: any) {
   }, [props.routes]);
 
   const Wrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1.5em;
-    justify-content: center;
     background-image: url(${img});
     border-radius: 4px;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-    width: 60%;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    justify-content: center;
+    width: 100%;
+    margin: 1em auto;
     min-width: 250px;
+    max-width: 400px;
+
+    @media (min-width: 400px) {
+      padding: 1.5em;
+      width: 60%;
+      display: flex;
+    }
+
+    @media (min-width: 1000px) {
+      width: 60%;
+      display: inline-flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 1em;
+    }
   `;
 
   const WrapperInner = styled.div`
     padding: 0.5em;
-    width: 60%;
-    margin: auto;
+    width: 100%;
+    margin: 0.5em;
     justify-content: center;
   `;
 
-  const Text = styled.span`
-    display: ${display.current};
-    border-radius: 4px;
-    background-color: grey;
-    color: rgb(243, 243, 243);
-    font-size: 30px;
-    text-shadow: 1px 1px 2px #3d3d3d;
-    text-align: center;
-    width: auto;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 10px;
-  `;
   return (
     <Wrapper>
       <WrapperInner>
         <Dropdown
           display={selectedRoute.current}
+          label={selectedRoute.current}
           contents={routes}
           handleChange={handleRouteChange}
         />
@@ -136,8 +145,16 @@ export default function BusEstimate(props: any) {
           handleChange={handleStopChange}
         />
       </WrapperInner>
-
-      <Text data-testid="estimate">{time.current}</Text>
+      {estimates.map(
+        (item: { time: string; delay: boolean; display: React.ReactNode }) => (
+          <BusArrival
+            time={item.time}
+            display={display.current}
+            delay={item.delay}
+          />
+        )
+      )}
+      <GenericButton handleChange={getEstimate} label="Update" />
     </Wrapper>
   );
 }

@@ -14,12 +14,21 @@ const Main: React.FC = () => {
     : BusTrackerAPI;
 
   const Wrapper = styled.div`
-    background: papayawhip;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    @media (min-width: 1000px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
   `;
+  const WrapperOuter = styled.div``;
 
   useEffect(() => {
     async function fetchRoutes() {
-      let data = await BusTrackerAPI.getAllRoutes("json");
+      let data = await BusTrackerAPI.getAllRoutes();
       let allRoutes = data["bustime-response"].routes.map((route: any) => {
         return { value: route.rt, display: route.rt };
       });
@@ -28,13 +37,13 @@ const Main: React.FC = () => {
     fetchRoutes();
   }, []);
   return (
-    <Wrapper>
+    <WrapperOuter>
       <NavBar />
-      <br />
-      <BusEstimate api={busTrackerApi} routes={routes} />
-      <br />
-      <BusEstimate api={busTrackerApi} routes={routes} />
-    </Wrapper>
+      <Wrapper>
+        <BusEstimate api={busTrackerApi} routes={routes} />
+        <BusEstimate api={busTrackerApi} routes={routes} />
+      </Wrapper>
+    </WrapperOuter>
   );
 };
 
