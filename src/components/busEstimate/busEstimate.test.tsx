@@ -10,7 +10,7 @@ import {
 
 afterEach(cleanup);
 it("Displays time estimate when route, direction, and stop are selected", async () => {
-  let data: any = await StubBusTrackerAPI.getAllRoutes("json");
+  let data: any = await StubBusTrackerAPI.getAllRoutes();
   let allRoutes = data["bustime-response"].routes.map((route: any) => {
     return { value: route.rt, display: route.rt };
   });
@@ -20,6 +20,7 @@ it("Displays time estimate when route, direction, and stop are selected", async 
   );
 
   const routes = getByTestId("Select Route");
+
   fireEvent.change(routes);
 
   const button = getByText("8A");

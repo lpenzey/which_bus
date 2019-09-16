@@ -1,81 +1,44 @@
 import axios from "axios";
+const DeployedOmnibusUri = "https://omnibus-backend.herokuapp.com";
+const LocalOmnibusUri = "http://127.0.0.1:8080/api";
 
 const BusTrackerAPI = {
-  getAllRoutes: async (format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getroutes",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          format: format
-        }
-      }
-    );
+  getAllRoutes: async () => {
+    const response = await axios.get(DeployedOmnibusUri + "/routes");
     return response.data;
   },
   registerUser: async (userName: String, password: String) => {
-    const response = await axios.post("http://127.0.0.1:8080/users/register", {
+    const response = await axios.post(DeployedOmnibusUri + "/users/register", {
       name: userName,
       password: password
     });
     return response.data;
   },
-  requestTimeEstimate: async (route: number, stpid: number, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpredictions",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          route: route,
-          stpid: stpid,
-          format: format
-        }
+  requestTimeEstimate: async (route: number, stpid: number) => {
+    const response = await axios.get(DeployedOmnibusUri + "/predictions", {
+      params: {
+        rt: route,
+        stpid: stpid
       }
-    );
+    });
     return response.data;
   },
-  getFullRoute: async (route: number, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpatterns",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          rt: route,
-          format: format
-        }
+  getStops: async (route: number, direction: string) => {
+    const response = await axios.get(DeployedOmnibusUri + "/stops", {
+      params: {
+        rt: route,
+        dir: direction
       }
-    );
-
+    });
     return response.data;
   },
 
-  getStops: async (route: number, direction: string, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getstops",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          rt: route,
-          dir: direction,
-          format: format
-        }
+  getDirections: async (route: number) => {
+    const response = await axios.get(DeployedOmnibusUri + "/directions", {
+      params: {
+        rt: route
       }
-    );
-    console.log(response);
-    return response.data;
-  },
-
-  getDirections: async (route: number, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getdirections",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          rt: route,
-          format: format
-        }
-      }
-    );
+    });
 
     return response.data;
   }

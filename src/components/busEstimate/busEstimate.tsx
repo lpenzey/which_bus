@@ -3,15 +3,14 @@ import Dropdown from "../genericDropdown/genericDropdown";
 import styled from "styled-components";
 import img from "./img.png";
 import BusArrival from "../busArrival/busArrival";
-import UpdateButton from "components/updateButton/updateButton";
+import GenericButton from "components/genericButton/genericButton";
 
 export default function BusEstimate(props: any) {
   const [routes, setRoutes] = useState(Array<any>());
   const [directions, setDirections] = useState(Array<any>());
   const [stops, setStops] = useState(Array<any>());
   const [estimates, setEstimates] = useState(Array<any>());
-  const [update, setUpdate] = useState("");
-  const time = useRef("");
+  const [, setUpdate] = useState("");
   const stpid = useRef("");
   const display = useRef("none");
   const selectedStop = useRef("Select Stop");
@@ -19,7 +18,6 @@ export default function BusEstimate(props: any) {
   const selectedDirection = useRef("Select Direction");
 
   function handleRouteChange(route: string) {
-    testOmnibus();
     selectedRoute.current = route;
     populateDirections();
   }
@@ -35,13 +33,8 @@ export default function BusEstimate(props: any) {
     getEstimate();
   }
 
-  const testOmnibus = async () => {
-    let data = await props.api.testOmnibus();
-    console.log("here" + data.id);
-  };
-
   const populateDirections = async () => {
-    let data = await props.api.getDirections(selectedRoute.current, "json");
+    let data = await props.api.getDirections(selectedRoute.current);
 
     let availableDirections = data["bustime-response"].directions.map(
       (direction: any) => {
@@ -53,11 +46,7 @@ export default function BusEstimate(props: any) {
   };
 
   const populateStops = async (direction: string) => {
-    let data = await props.api.getStops(
-      selectedRoute.current,
-      direction,
-      "json"
-    );
+    let data = await props.api.getStops(selectedRoute.current, direction);
     let availableStops = data["bustime-response"].stops.map((stop: any) => {
       return { value: stop.stpnm, id: stop.stpid, display: stop.stpnm };
     });
@@ -68,8 +57,7 @@ export default function BusEstimate(props: any) {
   const getEstimate = async () => {
     let data = await props.api.requestTimeEstimate(
       selectedRoute.current,
-      stpid.current,
-      "json"
+      stpid.current
     );
     let availableEstimates = data["bustime-response"].prd.map(
       (estimate: any) => {
@@ -166,7 +154,7 @@ export default function BusEstimate(props: any) {
           />
         )
       )}
-      <UpdateButton handleChange={getEstimate} />
+      <GenericButton handleChange={getEstimate} label="Update" />
     </Wrapper>
   );
 }

@@ -3,13 +3,13 @@
 exports[`Displays time estimate when route, direction, and stop are selected 1`] = `
 <div>
   <div
-    class="sc-fjdhpX dxjXGH"
+    class="sc-kAzzGY jUtlRR"
   >
     <div
-      class="sc-jzJRlG dpZxtS"
+      class="sc-chPdSV iwMWtk"
     >
       <select
-        class="sc-cSHVUG eaSJHz"
+        class="sc-kgoBCf iUwBPl"
         data-testid=""
       >
         <option
@@ -650,10 +650,10 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-jzJRlG dpZxtS"
+      class="sc-chPdSV iwMWtk"
     >
       <select
-        class="sc-kAzzGY jtwBvp"
+        class="sc-kGXeez fltxdy"
         data-testid=""
       >
         <option
@@ -674,10 +674,10 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-jzJRlG dpZxtS"
+      class="sc-chPdSV iwMWtk"
     >
       <select
-        class="sc-chPdSV hwwITN"
+        class="sc-kpOJdX ATnTN"
         data-testid="Select Stop"
       >
         <option
@@ -1027,6 +1027,13 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
           Washington + Wabash (Nearside Garland)
         </option>
       </select>
+    </div>
+    <div>
+      <button
+        class="sc-dxgOiQ bnIidh"
+      >
+        Update
+      </button>
     </div>
   </div>
 </div>
