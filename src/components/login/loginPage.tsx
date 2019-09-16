@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import GenericButton from "../genericButton/genericButton";
-import { navigate } from "hookrouter";
+import LoginForm from "./loginForm";
+import BusTrackerAPI from "../../Services/busTrackerAPI";
+import { useRoutes } from "hookrouter";
+import RegistrationPage from "../registration/registrationPage";
 
-const NavBar: React.FC = () => {
+const Login: React.FC = () => {
   const Navbar = styled.nav`
     sticky: top;
     text-align: left;
@@ -19,8 +22,8 @@ const NavBar: React.FC = () => {
     align-items: center;
   `;
 
-  function navigateToLogin() {
-    navigate("/login");
+  function navigateHome() {
+    // navigate("/login");
   }
   return (
     <div>
@@ -31,10 +34,11 @@ const NavBar: React.FC = () => {
             🧐
           </span>
         </div>
-        <GenericButton handleChange={navigateToLogin} label="Login" />
+        <GenericButton handleChange={navigateHome} label="Login" />
       </Navbar>
+      <LoginForm api={BusTrackerAPI} />
     </div>
   );
 };
 
-export default NavBar;
+export default Login;

@@ -23,7 +23,9 @@ describe("API service", () => {
 
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
     expect(data.routesResponse["bustime-response"].routes.length).toEqual(126);
-    expect(mockedAxios.get).toHaveBeenCalledWith(deployedApiUrl + "/routes");
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      deployedApiUrl + "/api/routes"
+    );
   });
 
   it("gets time estimates for a stop", async () => {
@@ -42,7 +44,7 @@ describe("API service", () => {
     );
 
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      deployedApiUrl + "/predictions",
+      deployedApiUrl + "/api/predictions",
       {
         params: {
           rt: 20,
@@ -65,12 +67,15 @@ describe("API service", () => {
     expect(data.stopsResponse["bustime-response"].stops[0].stpid).toEqual(
       "4727"
     );
-    expect(mockedAxios.get).toHaveBeenCalledWith(deployedApiUrl + "/stops", {
-      params: {
-        rt: 70,
-        dir: "Eastbound"
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      deployedApiUrl + "/api/stops",
+      {
+        params: {
+          rt: 70,
+          dir: "Eastbound"
+        }
       }
-    });
+    );
   });
 
   it("gets available directions for a bus route", async () => {
@@ -88,7 +93,7 @@ describe("API service", () => {
     ).toEqual(2);
 
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      deployedApiUrl + "/directions",
+      deployedApiUrl + "/api/directions",
       {
         params: {
           rt: 70

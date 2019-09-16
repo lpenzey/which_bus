@@ -4,9 +4,7 @@ import NavBar from "./components/navBar/navBar";
 import BusTrackerAPI from "./Services/busTrackerAPI";
 import { appConfig } from "configs/App";
 import StubBusTrackerAPI from "Services/stubBusTrackerAPI";
-import RegistrationForm from "./components/userRegistration/userRegistration";
 import styled from "styled-components";
-import UpdateButton from "components/updateButton/updateButton";
 
 const Main: React.FC = () => {
   const [routes, setRoutes] = useState(Array<any>());
@@ -14,10 +12,6 @@ const Main: React.FC = () => {
   const busTrackerApi = appConfig.useMockApi
     ? StubBusTrackerAPI
     : BusTrackerAPI;
-
-  const testButton = () => {
-    console.log("here");
-  };
 
   const Wrapper = styled.div`
     display: flex;
@@ -34,7 +28,7 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     async function fetchRoutes() {
-      let data = await BusTrackerAPI.getAllRoutes("json");
+      let data = await BusTrackerAPI.getAllRoutes();
       let allRoutes = data["bustime-response"].routes.map((route: any) => {
         return { value: route.rt, display: route.rt };
       });
@@ -46,7 +40,6 @@ const Main: React.FC = () => {
     <WrapperOuter>
       <NavBar />
       <Wrapper>
-        <RegistrationForm api={busTrackerApi} />
         <BusEstimate api={busTrackerApi} routes={routes} />
         <BusEstimate api={busTrackerApi} routes={routes} />
       </Wrapper>
