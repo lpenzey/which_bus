@@ -25,15 +25,7 @@ const RegistrationPage: React.FC = () => {
   }
   return (
     <div>
-      <Navbar>
-        <div>
-          WHICH BUS{" "}
-          <span role="img" aria-label="Thinking emoji">
-            🧐
-          </span>
-        </div>
-        <GenericButton handleChange={navigateToLogin} label="Login" />
-      </Navbar>
+      <Navbar />
       <RegistrationForm api={BusTrackerAPI} />
     </div>
   );
