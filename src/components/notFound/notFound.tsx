@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { Title, Input } from "components/theme";
 import obi from "./obi.png";
+import NavBar from "components/navBar/navBar";
 
 const Wrapper = styled.section`
   display: flex;
@@ -31,10 +32,13 @@ const Wrapper = styled.section`
 
 export default function NotFound(props: any) {
   return (
-    <Wrapper>
-      <Title>404</Title>
-      <img src={obi} alt="Logo" />
-      <Title>This is not the page you are looking for...</Title>
-    </Wrapper>
+    <div>
+      <NavBar />
+      <Wrapper>
+        <Title>404</Title>
+        <img src={obi} alt="Logo" />
+        <Title>This is not the page you are looking for...</Title>
+      </Wrapper>
+    </div>
   );
 }

@@ -1,19 +1,63 @@
 import axios from "axios";
+
 const DeployedOmnibusUri = "https://omnibus-backend.herokuapp.com";
-const LocalOmnibusUri = "http://127.0.0.1:8080/api";
+const LocalOmnibusUri = "http://localhost:8080";
 
 const BusTrackerAPI = {
   getAllRoutes: async () => {
     const response = await axios.get(DeployedOmnibusUri + "/api/routes");
     return response.data;
   },
-  registerUser: async (userName: String, password: String) => {
+
+  registerUser: async (userName: string, password: string) => {
     const response = await axios.post(DeployedOmnibusUri + "/users/register", {
       name: userName,
       password: password
     });
     return response.data;
   },
+
+  login: async (userName: string, passWord: string) => {
+    const response = await axios.post(
+      DeployedOmnibusUri + "/users/login",
+      {},
+      {
+        auth: {
+          username: userName,
+          password: passWord
+        },
+        withCredentials: true
+      }
+    );
+    alert("Login Successful");
+    sessionStorage.setItem("token", response.headers["authorization"]);
+    return response;
+  },
+
+  getFavorites: async () => {
+    const token = sessionStorage.getItem("token");
+    const response = await axios.get(DeployedOmnibusUri + "/users/favorites", {
+      headers: { Authorization: `${token}` }
+    });
+    return response.data;
+  },
+
+  addToFavorites: async (route: string, stopId: string) => {
+    const token = sessionStorage.getItem("token");
+    const response = await axios.post(
+      DeployedOmnibusUri + "/users/favorites",
+      {},
+      {
+        params: {
+          rt: route,
+          stpid: stopId
+        },
+        headers: { Authorization: `${token}` }
+      }
+    );
+    return response.data;
+  },
+
   requestTimeEstimate: async (route: number, stpid: number) => {
     const response = await axios.get(DeployedOmnibusUri + "/api/predictions", {
       params: {
@@ -23,6 +67,7 @@ const BusTrackerAPI = {
     });
     return response.data;
   },
+
   getStops: async (route: number, direction: string) => {
     const response = await axios.get(DeployedOmnibusUri + "/api/stops", {
       params: {

@@ -81,6 +81,10 @@ export default function BusEstimate(props: any) {
     stpid.current = stopObject.id;
   }
 
+  function addToFavorites() {
+    props.api.addToFavorites(selectedRoute.current, stpid.current);
+  }
+
   useEffect(() => {
     setRoutes(props.routes);
   }, [props.routes]);
@@ -155,6 +159,11 @@ export default function BusEstimate(props: any) {
         )
       )}
       <GenericButton handleChange={getEstimate} label="Update" />
+      <GenericButton
+        display={display.current}
+        handleChange={addToFavorites}
+        label="Save this stop"
+      />
     </Wrapper>
   );
 }

@@ -4,12 +4,13 @@ import { Title, Input } from "components/theme";
 import "./userRegistration.css";
 
 import { Formik, Field, Form, FormikActions, FormikErrors } from "formik";
+import NavBar from "components/navBar/navBar";
 
 interface FormValues {
   userName: string;
   password: string;
 }
-
+const Wrapper = styled.section``;
 const RegForm = styled.form`
   border-radius: 4px;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
@@ -41,55 +42,57 @@ const RegForm = styled.form`
 
 export default function RegistrationForm(props: any) {
   return (
-    <RegForm>
-      <Title>Register</Title>
-      <Formik
-        initialValues={{
-          userName: "",
-          password: ""
-        }}
-        onSubmit={(
-          values: FormValues,
-          { setSubmitting }: FormikActions<FormValues>
-        ) => {
-          props.api.registerUser(values.userName, values.password);
-        }}
-        validate={values => {
-          const errors: FormikErrors<FormValues> = {};
-          if (!values.userName) {
-            errors.userName = "Username Required";
-          }
-          if (!values.password) {
-            errors.password = "Password Required";
-          }
-          return errors;
-        }}
-        render={() => (
-          <Form>
-            <label htmlFor="userName"></label>
-            <Field
-              className="formInput"
-              id="userName"
-              name="userName"
-              placeholder="Your user name"
-              type="text"
-            />
+    <div>
+      <NavBar />
+      <RegForm>
+        <Title>Register</Title>
+        <Formik
+          initialValues={{
+            userName: "",
+            password: ""
+          }}
+          onSubmit={(
+            values: FormValues,
+            { setSubmitting }: FormikActions<FormValues>
+          ) => {
+            props.api.registerUser(values.userName, values.password);
+          }}
+          validate={values => {
+            const errors: FormikErrors<FormValues> = {};
+            if (!values.userName && !values.password) {
+              errors.userName = "Username Required";
+              errors.password = "Password Required";
+              alert("User name and password are required");
+            }
+            return errors;
+          }}
+          render={() => (
+            <Form>
+              <label htmlFor="userName"></label>
+              <Field
+                className="formInput"
+                id="userName"
+                name="userName"
+                placeholder="Your user name"
+                type="text"
+              />
 
-            <label htmlFor="password"></label>
-            <Field
-              className="formInput"
-              id="password"
-              name="password"
-              placeholder="Password"
-              type="text"
-            />
+              <label htmlFor="password"></label>
+              <Field
+                className="formInput"
+                id="password"
+                name="password"
+                placeholder="Password"
+                type="text"
+              />
 
-            <button type="submit" style={{ display: "block" }}>
-              Register
-            </button>
-          </Form>
-        )}
-      />
-    </RegForm>
+              <button type="submit" style={{ display: "block" }}>
+                Register
+              </button>
+            </Form>
+          )}
+        />
+      </RegForm>
+    </div>
   );
 }
