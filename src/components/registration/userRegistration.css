@@ -1,0 +1,17 @@
+.formInput {
+  width: 300px;
+  height: 35px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px;
+  justify-content: center;
+  width: 100%;
+  margin: 1em auto;
+  min-width: 250px;
+  max-width: 400px;
+}

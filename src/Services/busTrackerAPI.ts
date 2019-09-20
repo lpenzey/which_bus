@@ -1,74 +1,89 @@
 import axios from "axios";
 
+const DeployedOmnibusUri = "https://omnibus-backend.herokuapp.com";
+const LocalOmnibusUri = "http://localhost:8080";
+
 const BusTrackerAPI = {
-  getAllRoutes: async (format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getroutes",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          format: format
-        }
-      }
-    );
+  getAllRoutes: async () => {
+    const response = await axios.get(DeployedOmnibusUri + "/api/routes");
     return response.data;
   },
-  requestTimeEstimate: async (route: number, stpid: number, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpredictions",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          route: route,
-          stpid: stpid,
-          format: format
-        }
-      }
-    );
+
+  registerUser: async (userName: string, password: string) => {
+    const response = await axios.post(DeployedOmnibusUri + "/users/register", {
+      name: userName,
+      password: password
+    });
     return response.data;
   },
-  getFullRoute: async (route: number, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getpatterns",
+
+  login: async (userName: string, passWord: string) => {
+    const response = await axios.post(
+      DeployedOmnibusUri + "/users/login",
+      {},
+      {
+        auth: {
+          username: userName,
+          password: passWord
+        },
+        withCredentials: true
+      }
+    );
+    alert("Login Successful");
+    sessionStorage.setItem("token", response.headers["authorization"]);
+    return response;
+  },
+
+  getFavorites: async () => {
+    const token = sessionStorage.getItem("token");
+    const response = await axios.get(DeployedOmnibusUri + "/users/favorites", {
+      headers: { Authorization: `${token}` }
+    });
+    return response.data;
+  },
+
+  addToFavorites: async (route: string, stopId: string) => {
+    const token = sessionStorage.getItem("token");
+    const response = await axios.post(
+      DeployedOmnibusUri + "/users/favorites",
+      {},
       {
         params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
           rt: route,
-          format: format
-        }
+          stpid: stopId
+        },
+        headers: { Authorization: `${token}` }
       }
     );
-
     return response.data;
   },
 
-  getStops: async (route: number, direction: string, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getstops",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          rt: route,
-          dir: direction,
-          format: format
-        }
+  requestTimeEstimate: async (route: number, stpid: number) => {
+    const response = await axios.get(DeployedOmnibusUri + "/api/predictions", {
+      params: {
+        rt: route,
+        stpid: stpid
       }
-    );
-
+    });
     return response.data;
   },
 
-  getDirections: async (route: number, format: string) => {
-    const response = await axios.get(
-      "https://cors-anywhere.herokuapp.com/http://www.ctabustracker.com/bustime/api/v2/getdirections",
-      {
-        params: {
-          key: process.env.REACT_APP_BUS_TRACKER_API_KEY,
-          rt: route,
-          format: format
-        }
+  getStops: async (route: number, direction: string) => {
+    const response = await axios.get(DeployedOmnibusUri + "/api/stops", {
+      params: {
+        rt: route,
+        dir: direction
       }
-    );
+    });
+    return response.data;
+  },
+
+  getDirections: async (route: number) => {
+    const response = await axios.get(DeployedOmnibusUri + "/api/directions", {
+      params: {
+        rt: route
+      }
+    });
 
     return response.data;
   }

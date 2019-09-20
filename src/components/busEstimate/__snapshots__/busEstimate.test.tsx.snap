@@ -3,17 +3,21 @@
 exports[`Displays time estimate when route, direction, and stop are selected 1`] = `
 <div>
   <div
-    class="sc-ckVGcZ gOivCI"
+    class="sc-kGXeez bLwRgO"
   >
     <div
-      class="sc-jKJlTe dnXrBc"
+      class="sc-kpOJdX jriSkG"
     >
       <select
-        class="sc-hMqMXs kotQjw"
-        data-testid="1"
+        class="sc-dxgOiQ bCRJWD"
+        data-testid=""
       >
         <option
+          hidden=""
           selected=""
+          value=""
+        />
+        <option
           value="1"
         >
           1
@@ -646,14 +650,18 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-jKJlTe dnXrBc"
+      class="sc-kpOJdX jriSkG"
     >
       <select
-        class="sc-kEYyzF cYrBUT"
-        data-testid="Eastbound"
+        class="sc-ckVGcZ eRbRDs"
+        data-testid=""
       >
         <option
+          hidden=""
           selected=""
+          value=""
+        />
+        <option
           value="Eastbound"
         >
           Eastbound
@@ -666,14 +674,19 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-jKJlTe dnXrBc"
+      class="sc-kpOJdX jriSkG"
     >
       <select
-        class="sc-kkGfuU gmewp"
-        data-testid="1633 W Madison"
+        class="sc-jKJlTe iRiHpT"
+        data-testid="Select Stop"
       >
         <option
-          selected=""
+          hidden=""
+          value=""
+        >
+          Select Stop
+        </option>
+        <option
           value="1633 W Madison"
         >
           1633 W Madison
@@ -1015,12 +1028,20 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
         </option>
       </select>
     </div>
-    <span
-      class="sc-eNQAEJ doxenR"
-      data-testid="estimate"
-    >
-      Next Bus Arrives At 12:02
-    </span>
+    <div>
+      <button
+        class="sc-eNQAEJ imUHLG"
+      >
+        Update
+      </button>
+    </div>
+    <div>
+      <button
+        class="sc-hMqMXs ikOZRM"
+      >
+        Save this stop
+      </button>
+    </div>
   </div>
 </div>
 `;
