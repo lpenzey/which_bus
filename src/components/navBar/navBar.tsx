@@ -22,16 +22,31 @@ const NavBar: React.FC = () => {
   function navigateToLogin() {
     navigate("/login");
   }
+
+  function navigateToRegister() {
+    navigate("/register");
+  }
+
+  function navigateToFavorites() {
+    navigate("/favorites");
+  }
+
+  function navigateHome() {
+    navigate("/");
+  }
+
   return (
     <div>
       <Navbar>
-        <div>
+        <div onClick={navigateHome}>
           WHICH BUS{" "}
           <span role="img" aria-label="Thinking emoji">
             🧐
           </span>
         </div>
         <GenericButton handleChange={navigateToLogin} label="Login" />
+        <GenericButton handleChange={navigateToRegister} label="Register" />
+        <GenericButton handleChange={navigateToFavorites} label="Favorites" />
       </Navbar>
     </div>
   );

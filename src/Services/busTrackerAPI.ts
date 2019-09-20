@@ -5,12 +5,12 @@ const LocalOmnibusUri = "http://localhost:8080";
 
 const BusTrackerAPI = {
   getAllRoutes: async () => {
-    const response = await axios.get(LocalOmnibusUri + "/api/routes");
+    const response = await axios.get(DeployedOmnibusUri + "/api/routes");
     return response.data;
   },
 
   registerUser: async (userName: string, password: string) => {
-    const response = await axios.post(LocalOmnibusUri + "/users/register", {
+    const response = await axios.post(DeployedOmnibusUri + "/users/register", {
       name: userName,
       password: password
     });
@@ -19,7 +19,7 @@ const BusTrackerAPI = {
 
   login: async (userName: string, passWord: string) => {
     const response = await axios.post(
-      LocalOmnibusUri + "/users/login",
+      DeployedOmnibusUri + "/users/login",
       {},
       {
         auth: {
@@ -36,7 +36,7 @@ const BusTrackerAPI = {
 
   getFavorites: async () => {
     const token = sessionStorage.getItem("token");
-    const response = await axios.get(LocalOmnibusUri + "/users/favorites", {
+    const response = await axios.get(DeployedOmnibusUri + "/users/favorites", {
       headers: { Authorization: `${token}` }
     });
     return response.data;
@@ -45,7 +45,7 @@ const BusTrackerAPI = {
   addToFavorites: async (route: string, stopId: string) => {
     const token = sessionStorage.getItem("token");
     const response = await axios.post(
-      LocalOmnibusUri + "/users/favorites",
+      DeployedOmnibusUri + "/users/favorites",
       {},
       {
         params: {
@@ -59,7 +59,7 @@ const BusTrackerAPI = {
   },
 
   requestTimeEstimate: async (route: number, stpid: number) => {
-    const response = await axios.get(LocalOmnibusUri + "/api/predictions", {
+    const response = await axios.get(DeployedOmnibusUri + "/api/predictions", {
       params: {
         rt: route,
         stpid: stpid
@@ -69,7 +69,7 @@ const BusTrackerAPI = {
   },
 
   getStops: async (route: number, direction: string) => {
-    const response = await axios.get(LocalOmnibusUri + "/api/stops", {
+    const response = await axios.get(DeployedOmnibusUri + "/api/stops", {
       params: {
         rt: route,
         dir: direction
@@ -79,7 +79,7 @@ const BusTrackerAPI = {
   },
 
   getDirections: async (route: number) => {
-    const response = await axios.get(LocalOmnibusUri + "/api/directions", {
+    const response = await axios.get(DeployedOmnibusUri + "/api/directions", {
       params: {
         rt: route
       }

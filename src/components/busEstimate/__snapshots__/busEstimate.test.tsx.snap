@@ -3,13 +3,13 @@
 exports[`Displays time estimate when route, direction, and stop are selected 1`] = `
 <div>
   <div
-    class="sc-kAzzGY jUtlRR"
+    class="sc-kGXeez bLwRgO"
   >
     <div
-      class="sc-chPdSV iwMWtk"
+      class="sc-kpOJdX jriSkG"
     >
       <select
-        class="sc-kgoBCf iUwBPl"
+        class="sc-dxgOiQ bCRJWD"
         data-testid=""
       >
         <option
@@ -650,10 +650,10 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-chPdSV iwMWtk"
+      class="sc-kpOJdX jriSkG"
     >
       <select
-        class="sc-kGXeez fltxdy"
+        class="sc-ckVGcZ eRbRDs"
         data-testid=""
       >
         <option
@@ -674,10 +674,10 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       </select>
     </div>
     <div
-      class="sc-chPdSV iwMWtk"
+      class="sc-kpOJdX jriSkG"
     >
       <select
-        class="sc-kpOJdX ATnTN"
+        class="sc-jKJlTe iRiHpT"
         data-testid="Select Stop"
       >
         <option
@@ -1030,9 +1030,16 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
     </div>
     <div>
       <button
-        class="sc-dxgOiQ bnIidh"
+        class="sc-eNQAEJ imUHLG"
       >
         Update
+      </button>
+    </div>
+    <div>
+      <button
+        class="sc-hMqMXs ikOZRM"
+      >
+        Save this stop
       </button>
     </div>
   </div>
