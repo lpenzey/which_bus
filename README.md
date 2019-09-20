@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lpenzey/which_bus.svg?branch=master)](https://travis-ci.org/lpenzey/which_bus)
+
 ## Which Bus? 🧐
 
 A simple app that finally answers the age old question: which bus should I take?
