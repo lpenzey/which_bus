@@ -14,6 +14,7 @@ const BusTrackerAPI = {
       name: userName,
       password: password
     });
+    alert(response.data.action);
     return response.data;
   },
 

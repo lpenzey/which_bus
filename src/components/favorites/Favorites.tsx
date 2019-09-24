@@ -1,58 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { Title } from "components/theme";
+import { Title, OuterWrapper } from "styles/theme";
 import NavBar from "components/navBar/navBar";
 import BusContainer from "./BusContainer";
-
-const Wrapper = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 2px;
-  justify-content: center;
-  width: 100%;
-  margin: 1em auto;
-
-  flex-direction: column;
-  align-items: center;
-
-  @media (min-width: 400px) {
-    padding: 1.5em;
-    width: 60%;
-    display: flex;
-  }
-
-  @media (min-width: 2000px) {
-    width: 60%;
-    display: inline-flex;
-    justify-content: center;
-    flex-direction: row;
-    margin: 1em;
-  }
-`;
+import { EstimateCard, Wrapper } from "styles/theme";
 
 export default function Favorites(props: any) {
   const [estimates, setEstimates] = useState(Array<any>());
-  const [favorites, setFavorites] = useState(Array<any>());
-  const [update, setUpdate] = useState("");
-  // const display = useRef("block");
+  const [favorites, setFavorites] = useState();
+  const [update, setUpdate] = useState(0);
+  const display = useRef("block");
 
   const getFavorites = async () => {
     let data = await props.api.getFavorites();
-    let favoriteStops: Array<any> = data["favorites"].map((favorite: any) => {
-      return {
-        route: favorite.route,
-        stopId: favorite.stopId
-      };
-    });
+    let favoriteStops: Array<any> = data["favorites"].map(
+      (favorite: { route: string; stopId: string; estimates: [] }) => {
+        return {
+          route: favorite.route,
+          stopId: favorite.stopId,
+          estimates: new Array()
+        };
+      }
+    );
 
-    // display.current = "block";
-    setFavorites(favoriteStops);
     getEstimate(favoriteStops);
   };
 
   const getEstimate = async (favorites: Array<any>) => {
-    console.log("inside estiamte");
-    console.log(favorites);
     favorites.map(async (favorite: any) => {
       let data = await props.api.requestTimeEstimate(
         favorite.route,
@@ -67,13 +40,10 @@ export default function Favorites(props: any) {
           };
         }
       );
-      // display.current = "block";
-      console.log(availableEstimates);
-      setEstimates(availableEstimates);
-      let i = 0;
-      setUpdate(update + i);
-      i++;
+      favorite.estimates = [...availableEstimates];
+      setUpdate(favorite.route);
     });
+    setFavorites(favorites);
   };
 
   useEffect(() => {
@@ -83,12 +53,25 @@ export default function Favorites(props: any) {
   return (
     <div>
       <NavBar />
-      <Wrapper>
-        <Title>Here are your favorites</Title>
-        {favorites.map((item: { route: string; stpId: string }) => (
-          <BusContainer route={item.route} estimates={estimates} />
-        ))}
-      </Wrapper>
+      <OuterWrapper>
+        <Wrapper>
+          {favorites &&
+            favorites.map(
+              (favorite: {
+                route: string;
+                stpId: string;
+                estimates: Array<any>;
+              }) => (
+                <EstimateCard>
+                  <BusContainer
+                    route={favorite.route}
+                    estimates={favorite.estimates}
+                  />
+                </EstimateCard>
+              )
+            )}
+        </Wrapper>
+      </OuterWrapper>
     </div>
   );
 }
