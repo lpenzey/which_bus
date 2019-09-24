@@ -1,6 +1,5 @@
 import React from "react";
 import { useRoutes } from "hookrouter";
-import "./App.css";
 import Main from "./main";
 import Login from "./components/login/loginPage";
 import Register from "./components/registration/registrationPage";

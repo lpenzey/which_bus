@@ -4,7 +4,7 @@ import NavBar from "./components/navBar/navBar";
 import BusTrackerAPI from "./Services/busTrackerAPI";
 import { appConfig } from "configs/App";
 import StubBusTrackerAPI from "Services/stubBusTrackerAPI";
-import styled from "styled-components";
+import { Wrapper, OuterWrapper } from "styles/theme";
 
 const Main: React.FC = () => {
   const [routes, setRoutes] = useState(Array<any>());
@@ -12,19 +12,6 @@ const Main: React.FC = () => {
   const busTrackerApi = appConfig.useMockApi
     ? StubBusTrackerAPI
     : BusTrackerAPI;
-
-  const Wrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    @media (min-width: 1000px) {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-  `;
-  const WrapperOuter = styled.div``;
 
   useEffect(() => {
     async function fetchRoutes() {
@@ -37,13 +24,15 @@ const Main: React.FC = () => {
     fetchRoutes();
   }, []);
   return (
-    <WrapperOuter>
+    <div>
       <NavBar />
-      <Wrapper>
-        <BusEstimate api={busTrackerApi} routes={routes} />
-        <BusEstimate api={busTrackerApi} routes={routes} />
-      </Wrapper>
-    </WrapperOuter>
+      <OuterWrapper>
+        <Wrapper>
+          <BusEstimate api={busTrackerApi} routes={routes} />
+          <BusEstimate api={busTrackerApi} routes={routes} />
+        </Wrapper>
+      </OuterWrapper>
+    </div>
   );
 };
 
