@@ -8,7 +8,7 @@ import directionsResponse from "./__fixtures__/getDirections.json";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-const deployedApiUrl = "https://omnibus-backend.herokuapp.com/v1";
+const deployedApiUrl = "https://omnibus-backend.herokuapp.com/v2";
 const localApiUrl = "http://127.0.0.1:8080";
 
 describe("API service", () => {
