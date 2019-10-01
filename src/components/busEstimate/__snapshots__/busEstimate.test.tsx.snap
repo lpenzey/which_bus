@@ -9,7 +9,7 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       class="sc-htpNat eQMvIC"
     >
       <select
-        class="sc-jKJlTe iRiHpT"
+        class="sc-jKJlTe esmFse"
         data-testid=""
       >
         <option
@@ -653,7 +653,7 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       class="sc-htpNat eQMvIC"
     >
       <select
-        class="sc-eNQAEJ gtfral"
+        class="sc-eNQAEJ axmIY"
         data-testid=""
       >
         <option
@@ -677,7 +677,7 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
       class="sc-htpNat eQMvIC"
     >
       <select
-        class="sc-hMqMXs OReRr"
+        class="sc-hMqMXs iCwFNT"
         data-testid="Select Stop"
       >
         <option
@@ -1030,14 +1030,14 @@ exports[`Displays time estimate when route, direction, and stop are selected 1`]
     </div>
     <div>
       <button
-        class="sc-kEYyzF iENwPR"
+        class="sc-kEYyzF lloDQD"
       >
         Update
       </button>
     </div>
     <div>
       <button
-        class="sc-kkGfuU bVLPEB"
+        class="sc-kkGfuU bEbySL"
       >
         Save this stop
       </button>
