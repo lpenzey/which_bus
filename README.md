@@ -10,6 +10,8 @@ View staging app [here](https://which-bus-staging.herokuapp.com/)(May take Herok
 
 ## Available Scripts
 
+First install the dependencies by running 'npm install'
+
 In the project directory, you can run:
 
 ### `npm run dev`
