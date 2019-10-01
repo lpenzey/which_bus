@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import GenericButton from "../genericButton/genericButton";
 import { navigate } from "hookrouter";
+import Dropdown from "components/genericDropdown/genericDropdown";
 
 const NavBar: React.FC = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const Navbar = styled.nav`
     sticky: top;
     text-align: left;
@@ -14,26 +16,59 @@ const NavBar: React.FC = () => {
     opacity: 0.93;
     display: flex;
     flex-wrap: wrap;
-    padding: 2px;
     justify-content: space-between;
     align-items: center;
   `;
 
-  function navigateToLogin() {
-    navigate("/login");
-  }
-
-  function navigateToRegister() {
-    navigate("/register");
-  }
-
-  function navigateToFavorites() {
-    navigate("/favorites");
-  }
-
   function navigateHome() {
     navigate("/");
   }
+
+  function handleChange(item: string) {
+    navigate(item);
+  }
+
+  const registerButton = {
+    value: "/register",
+    id: "registerButton",
+    display: "Register"
+  };
+  const homeButton = {
+    value: "/",
+    id: "home button",
+    display: "Home"
+  };
+  const favoritesButton = {
+    value: "/favorites",
+    id: "favorites button",
+    display: "Favorites"
+  };
+
+  var loginButton;
+  var navContents;
+  if (loggedIn) {
+    loginButton = {
+      value: "/logout",
+      id: "logout button",
+      display: "Logout"
+    };
+
+    navContents = [homeButton, loginButton, registerButton, favoritesButton];
+  } else {
+    loginButton = {
+      value: "/login",
+      id: "login button",
+      display: "Login"
+    };
+    navContents = [homeButton, loginButton, registerButton];
+  }
+
+  useEffect(() => {
+    let data = sessionStorage.getItem("whichBusToken");
+    if (data !== null) {
+      setLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div>
@@ -44,9 +79,14 @@ const NavBar: React.FC = () => {
             🧐
           </span>
         </div>
-        <GenericButton handleChange={navigateToLogin} label="Login" />
-        <GenericButton handleChange={navigateToRegister} label="Register" />
-        <GenericButton handleChange={navigateToFavorites} label="Favorites" />
+        <div>
+          <Dropdown
+            display={"="}
+            label={"Navigate dropdown"}
+            contents={navContents}
+            handleChange={handleChange}
+          />
+        </div>
       </Navbar>
     </div>
   );
