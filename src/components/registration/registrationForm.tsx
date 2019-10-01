@@ -1,9 +1,11 @@
 import * as React from "react";
-import { Title, StyledForm } from "styles/theme";
+import { Title, StyledForm, OuterWrapper } from "styles/theme";
 import "./userRegistration.css";
-
-import { Formik, Field, Form, FormikActions, FormikErrors } from "formik";
+import * as Yup from "yup";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import NavBar from "components/navBar/navBar";
+import "./registrationForm.css";
+import { useState } from "react";
 
 interface FormValues {
   userName: string;
@@ -11,54 +13,84 @@ interface FormValues {
 }
 
 export default function RegistrationForm(props: any) {
+  const [showHide, setShowHide] = useState("password");
+
+  function changeShowPassword() {
+    setShowHide(showHide === "input" ? "password" : "input");
+  }
+
   return (
     <div>
       <NavBar />
       <StyledForm>
         <Title>Register</Title>
         <Formik
+          validateOnChange={false}
+          validateOnBlur={false}
           initialValues={{
             userName: "",
             password: ""
           }}
-          onSubmit={(
-            values: FormValues,
-            { setSubmitting }: FormikActions<FormValues>
-          ) => {
+          onSubmit={(values: FormValues) => {
             props.api.registerUser(values.userName, values.password);
           }}
-          validate={values => {
-            const errors: FormikErrors<FormValues> = {};
-            if (!values.userName && !values.password) {
-              errors.userName = "Username Required";
-              errors.password = "Password Required";
-              alert("User name and password are required");
-            }
-            return errors;
-          }}
-          render={() => (
+          validationSchema={Yup.object().shape({
+            userName: Yup.string()
+              .min(2, "Too Short!")
+              .max(50, "Too Long!")
+              .required("User name is required"),
+            password: Yup.string()
+              .min(2, "Too Short!")
+              .max(50, "Too Long!")
+              .required("Password is required")
+              .matches(
+                /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                "Password must contain 8 characters, one uppercase, one lowercase, one number and one special character"
+              )
+          })}
+          render={({ errors, status, touched }) => (
             <Form>
               <label htmlFor="userName"></label>
               <Field
-                className="formInput"
-                id="userName"
                 name="userName"
-                placeholder="Your user name"
                 type="text"
+                placeholder="Username"
+                className={
+                  "formInput" +
+                  (errors.userName && touched.userName ? " is-invalid" : "")
+                }
+              />
+
+              <ErrorMessage
+                name="userName"
+                component="div"
+                className="invalid-feedback"
               />
 
               <label htmlFor="password"></label>
               <Field
-                className="formInput"
-                id="password"
                 name="password"
+                type={showHide}
                 placeholder="Password"
-                type="text"
+                className={
+                  "formInput" +
+                  (errors.password && touched.password ? " is-invalid" : "")
+                }
               />
 
-              <button type="submit" style={{ display: "block" }}>
-                Register
-              </button>
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="invalid-feedback"
+              />
+              <OuterWrapper>
+                <button type="button" onClick={changeShowPassword}>
+                  {showHide === "input" ? "Hide" : "Show"}
+                </button>
+                <button type="submit" style={{ display: "block" }}>
+                  Register
+                </button>
+              </OuterWrapper>
             </Form>
           )}
         />

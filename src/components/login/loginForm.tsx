@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Title, StyledForm, Wrapper } from "styles/theme";
-
-import { Formik, Field, Form, FormikActions, FormikErrors } from "formik";
+import { Title, StyledForm, Wrapper, OuterWrapper } from "styles/theme";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useState } from "react";
 
 interface FormValues {
   userName: string;
@@ -10,54 +11,73 @@ interface FormValues {
 }
 
 export default function LoginForm(props: any) {
+  const [showHide, setShowHide] = useState("password");
+
+  function changeShowPassword() {
+    setShowHide(showHide === "input" ? "password" : "input");
+  }
   return (
     <div>
       <StyledForm>
         <Title>Login</Title>
         <Formik
+          validateOnChange={false}
+          validateOnBlur={false}
           initialValues={{
             userName: "",
             password: ""
           }}
-          onSubmit={(
-            values: FormValues,
-            { setSubmitting }: FormikActions<FormValues>
-          ) => {
+          onSubmit={(values: FormValues) => {
             props.api.login(values.userName, values.password);
           }}
-          validate={values => {
-            const errors: FormikErrors<FormValues> = {};
-            if (!values.userName) {
-              errors.userName = "Username Required";
-            }
-            if (!values.password) {
-              errors.password = "Password Required";
-            }
-            return errors;
-          }}
-          render={() => (
+          validationSchema={Yup.object().shape({
+            userName: Yup.string().required("User name is required"),
+            password: Yup.string().required("Password is required")
+          })}
+          render={({ errors, status, touched }) => (
             <Form>
-              <label htmlFor="userName"></label>
-              <Field
-                className="formInput"
-                id="userName"
-                name="userName"
-                placeholder="Your user name"
-                type="text"
-              />
+              <div className="form-group">
+                <Field
+                  name="userName"
+                  type="text"
+                  placeholder="Username"
+                  className={
+                    "formInput" +
+                    (errors.userName && touched.userName ? " is-invalid" : "")
+                  }
+                />
+                <ErrorMessage
+                  name="userName"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </div>
 
-              <label htmlFor="password"></label>
-              <Field
-                className="formInput"
-                id="password"
-                name="password"
-                placeholder="Password"
-                type="text"
-              />
+              <div className="form-group">
+                <Field
+                  name="password"
+                  type={showHide}
+                  placeholder="Password"
+                  className={
+                    "formInput" +
+                    (errors.password && touched.password ? " is-invalid" : "")
+                  }
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </div>
 
-              <button type="submit" style={{ display: "block" }}>
-                Submit
-              </button>
+              <OuterWrapper>
+                <button type="button" onClick={changeShowPassword}>
+                  {showHide === "input" ? "Hide" : "Show"}
+                </button>
+                <button type="submit" style={{ display: "block" }}>
+                  Login
+                </button>
+              </OuterWrapper>
             </Form>
           )}
         />
