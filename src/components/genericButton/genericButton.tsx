@@ -6,7 +6,7 @@ export default function GenericButton(props: any) {
     props.handleChange(e.target.value);
   }
   const Button = styled.button`
-    font-size: 0.5em;
+    font-size: 2em auto;
     margin: 1em;
     padding: 0.25em 1em;
     border: 2px solid palevioletred;

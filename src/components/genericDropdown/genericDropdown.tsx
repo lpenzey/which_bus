@@ -10,10 +10,9 @@ export default function Dropdown(props: any) {
     font-size: 1.5em;
     color: charcoal;
     font: 1em "Montserrat", sans-serif;
-    height: 3em;
+    height: 3em auto;
     width: 100%;
     padding: 0.5em;
-
     justify-content: center;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   `;
