@@ -6,10 +6,12 @@ import Register from "./components/registration/registrationPage";
 import NotFound from "./components/notFound/notFound";
 import BusTrackerAPI from "./Services/busTrackerAPI";
 import Favorites from "./components/favorites/Favorites";
+import Logout from "components/logout/logoutPage";
 
 const routes = {
   "/": () => <Main />,
   "/login": () => <Login />,
+  "/logout": () => <Logout />,
   "/register": () => <Register />,
   "/favorites": () => <Favorites api={BusTrackerAPI} />
 };
