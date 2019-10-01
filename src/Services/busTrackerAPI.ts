@@ -5,7 +5,7 @@ const DeployedV1OmnibusUrl = "https://omnibus-backend.herokuapp.com/v1";
 const DeployedV2OmnibusUrl = "https://omnibus-backend.herokuapp.com/v2";
 const Localv1OmnibusUrl = "http://localhost:8080/v1";
 const Localv2OmnibusUrl = "http://localhost:8080/v2";
-const omnibusUrl = DeployedV2OmnibusUrl;
+const omnibusUrl = DeployedV1OmnibusUrl;
 
 const BusTrackerAPI = {
   getAllRoutes: async () => {
